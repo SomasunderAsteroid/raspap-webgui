@@ -120,7 +120,7 @@ if ($_COOKIE['sidebarToggled'] == 'true' ) {
 	</li>
 	<?php if (RASPI_WIFICLIENT_ENABLED) : ?>
 	<li class="nav-item">
-	  <a class="nav-link" href="index.php?page=wpa_conf"><i class="fas fa-wifi fa-fw mr-2"></i><span class="nav-label"><?php echo _("Configure WiFi client"); ?></span></a>
+	  <a class="nav-link" href="index.php?page=wpa_conf"><i class="fas fa-wifi fa-fw mr-2"></i><span class="nav-label"><?php echo _("Configure WiFi client"); ?>New Test Content</span></a>
 	</li>
 	  <?php endif; ?>
 	  <?php if (RASPI_HOTSPOT_ENABLED) : ?>
