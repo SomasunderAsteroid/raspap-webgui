@@ -251,7 +251,7 @@ function default_configuration() {
         if grep "/bin/bash /usr/local/bin/wifistart" /etc/rc.local > /dev/null; then
             echo "/bin/bash /usr/local/bin/wifistart: Line already added"
         else
-            sudo sed -i "s/^exit 0$/\/bin\/bash \/usr\/local\/bin\/wifistart\nexit 0/" /etc/rc.local
+            sudo sed -i "s/^exit 0$/\/bin\/bash \/usr\/local\/bin\/wifistart\nexit 0/" /etc/rc.local || install_error "Unable to write command rc.local file."
             echo "Adding line /bin/bash /usr/local/bin/wifistart"
         fi
    # done
