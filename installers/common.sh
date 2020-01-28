@@ -242,18 +242,19 @@ function default_configuration() {
 
     # Generate required lines for Rasp AP to place into rc.local file.
     # #RASPAP is for removal script
-    lines=(
-    '/bin/bash /usr/local/bin/wifistart'
-    )
+    # lines=(
+    # '/bin/bash /usr/local/bin/wifistart'
+    # )
     
-    for line in "${lines[@]}"; do
-        if grep "$line" /etc/rc.local > /dev/null; then
-            echo "$line: Line already added"
+   # for line in "${lines[@]}"; do
+   # Add startup script path to rc.local
+        if grep "/bin/bash /usr/local/bin/wifistart" /etc/rc.local > /dev/null; then
+            echo "/bin/bash /usr/local/bin/wifistart: Line already added"
         else
-            sudo sed -i "s/^exit 0$/$line\nexit 0/" /etc/rc.local
-            echo "Adding line $line"
+            sudo sed -i "s/^exit 0$/\/bin/bash /usr/local/bin/wifistart\nexit 0/" /etc/rc.local
+            echo "Adding line /bin/bash /usr/local/bin/wifistart"
         fi
-    done
+   # done
 
     # Force a reload of new settings in /etc/rc.local
     sudo systemctl restart rc-local.service
