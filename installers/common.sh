@@ -243,9 +243,7 @@ function default_configuration() {
     # Generate required lines for Rasp AP to place into rc.local file.
     # #RASPAP is for removal script
     lines=(
-    'echo 1 > \/proc\/sys\/net\/ipv4\/ip_forward #RASPAP'
-    'iptables -t nat -A POSTROUTING -j MASQUERADE #RASPAP'
-    'iptables -t nat -A POSTROUTING -s 192.168.50.0\/24 ! -d 192.168.50.0\/24 -j MASQUERADE #RASPAP'
+    '/bin/bash /usr/local/bin/wifistart'
     )
     
     for line in "${lines[@]}"; do
